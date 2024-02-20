@@ -1,0 +1,45 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Video Feed</title>
+</head>
+<body>
+
+    <h2>Enter Video Feed Link</h2>
+
+    <form id="feedForm">
+        <label for="feedLink">Feed Link:</label>
+        <input type="text" id="feedLink" name="feedLink" required>
+        <button type="button" onclick="updateFeed()">Submit</button>
+    </form>
+
+    <h2>Video Feed</h2>
+
+    <iframe id="videoFrame" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+
+    <script>
+        function updateFeed() {
+            var feedLink = document.getElementById("feedLink").value;
+            var videoFrame = document.getElementById("videoFrame");
+            videoFrame.src = feedLink;
+        }
+    </script>
+
+</body>
+</html>
+-->
+<!-- configure_camera_feed.html -->
+<form method="post">
+    {% csrf_token %}
+    <label for="feedLink">Feed Link:</label>
+    <input type="text" id="feedLink" name="feedLink" required>
+    <button type="submit">Submit</button>
+</form>
+
+{% if camera_url %}
+<h2>Video Feed</h2>
+<iframe src="{{ camera_url }}" width="800" height="600" frameborder="0" allowfullscreen></iframe>
+{% endif %}
