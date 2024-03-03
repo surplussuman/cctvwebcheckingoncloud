@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTSP Camera Viewer</title>
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+</head>
+<body>
+
+    <h2>RTSP Camera Viewer</h2>
+
+    <button onclick="startCamera()">Start Camera</button>
+
+    <div id="videoContainer" style="display: none;">
+        <h3>RTSP Video Feed</h3>
+        <video id="videoPlayer" class="video-js vjs-default-skin" controls width="800" height="600"></video>
+    </div>
+
+    <script>
+        function startCamera() {
+            var rtspUrl = prompt("Please enter the RTSP URL:");
+            
+            if (rtspUrl !== null && rtspUrl !== "") {
+                showVideo(rtspUrl);
+            } else {
+                alert("Invalid RTSP URL. Please try again.");
+            }
+        }
+
+        function showVideo(rtspUrl) {
+            var videoContainer = document.getElementById("videoContainer");
+            var videoPlayer = videojs("videoPlayer");
+
+          
+            videoPlayer.src({ type: "application/x-rtsp", src: rtspUrl });
+
+            videoContainer.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

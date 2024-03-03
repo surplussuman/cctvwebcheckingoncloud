@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
 <body>
 
     <h2>Enter Video Feed Link</h2>
-
+<!--
     <form id="feedForm">
         <label for="feedLink">Feed Link:</label>
         <input type="text" id="feedLink" name="feedLink" required>
@@ -29,9 +29,7 @@
     </script>
 
 </body>
-</html>
--->
-<!-- configure_camera_feed.html -->
+</html> -->
 <form method="post">
     {% csrf_token %}
     <label for="feedLink">Feed Link:</label>
@@ -43,3 +41,7 @@
 <h2>Video Feed</h2>
 <iframe src="{{ camera_url }}" width="800" height="600" frameborder="0" allowfullscreen></iframe>
 {% endif %}
+
+</body>
+</html>
+
